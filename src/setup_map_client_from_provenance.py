@@ -232,9 +232,6 @@ def main():
             print(f"Failed to switch branch to v{p_data['version']}.")
             return RETURN_CODES["GIT_SWITCH_FAILED"]
 
-    # Temporary!!! Take the following line out.
-    subprocess.run([virtual_environment_pip_exe, "install", "-e", "/Users/hsor001/Projects/musculoskeletal/mapclient/src"], capture_output=True)
-
     map_client_use_exe = _get_virtual_environment_map_client_use(args.setup_dir, venv_directory_name)
     result = subprocess.run([map_client_use_exe, args.setup_dir, "-d", plugin_dir])
     if result.returncode != 0:
